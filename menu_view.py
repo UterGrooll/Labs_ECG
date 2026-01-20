@@ -31,7 +31,6 @@ class MenuView:
         left = ttk.Frame(container, width=LEFT_W)
         left.pack(side=tk.LEFT, fill=tk.Y)
         left.pack_propagate(False)
-
         info_lines = [
             "Инженерная и компьютерная графика",
             "Группа: 1483-05",
@@ -40,17 +39,14 @@ class MenuView:
         ]
         for line in info_lines:
             ttk.Label(left, text=line, font=FONT_TASK).pack(anchor="w", pady=2)
-
-        ttk.Label(left, text="Выберите лабораторную работу:", font=FONT_MENU).pack(anchor="w", pady=5)
-
         ttk.Frame(left).pack(fill=tk.BOTH, expand=True)
 
         buttons = ttk.Frame(left)
         buttons.pack(fill=tk.X)
+        ttk.Label(buttons, text="Выберите лабораторную работу:", font=FONT_MENU).pack(anchor="w", pady=(0, 6))
         ttk.Button(buttons, text="Лабораторная работа №1", command=self.controller.show_lab1).pack(fill=tk.X, pady=8)
         ttk.Button(buttons, text="Лабораторная работа №2", command=self.controller.show_lab2).pack(fill=tk.X, pady=8)
         ttk.Button(buttons, text="Лабораторная работа №4", command=self.controller.show_lab3).pack(fill=tk.X, pady=8)
-
         ttk.Frame(left).pack(fill=tk.BOTH, expand=True)
 
         right = ttk.Frame(container, width=RIGHT_W, height=RIGHT_H)
@@ -87,8 +83,7 @@ class MenuView:
             preview_canvas.create_text(
                 RIGHT_W // 2,
                 RIGHT_H // 2,
-                text=f"Не удалось загрузить nightcar.gif
-{e}",
+                text=f"Не удалось загрузить nightcar.gif\n{e}",
                 font=FONT_MENU,
             )
 
